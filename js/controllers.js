@@ -56,7 +56,6 @@ controllers.controller('ChartCtrl', ['$scope', '$filter', '$timeout', 'DataServi
       },
       axis: {
           y: {
-              max: 1,
               tick: {
                 format: function (d) { 
                   return $filter('percentage')(d);
