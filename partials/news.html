@@ -1,0 +1,28 @@
+<div class="col-md-7 col-sm-12">
+  <table class="table">
+    <tbody>
+      <tr ng-repeat="feed in feeds | filter:filterText">
+        <td>
+          <div class="row">
+            <h5 class="col-xs-3">
+              <a href="{{feed.link}}">{{feed.title}}</a>
+            </h5>
+            <div class="col-xs-7">
+              <p class="text-left">{{feed.contentSnippet}}</p>
+              <span class="small">{{feed.publishedDate}}</span>
+            </div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div><br>
+<div class="col-md-3 col-sm-0 sidebar-offcanvas" id="sidebar">
+  <div class="input-group">
+    <input type="text" class="form-control" ng-model="filterText" aria-describedby="basic-addon1" />
+    <span class="input-group-addon">
+      <span class="glyphicon glyphicon-search"></span>
+    </span>
+  </div>
+  <span class="badge badge-warning" ng-show="feeds.length > 0">{{(feeds | filter:filterText).length}} Items</span>
+</div>
