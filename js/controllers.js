@@ -53,6 +53,16 @@ controllers.controller('ChartCtrl', ['$scope', '$filter', 'DataService', functio
           columns: DataService.fourStarThresholds,
           type: 'line'
       },
+      axis: {
+          y: {
+              max: 1,
+              tick: {
+                format: function (d) { 
+                  return $filter('percentage')(d);
+                }
+              }
+          }
+      },
       point: {
         r: 4
       }
