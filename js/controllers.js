@@ -11,8 +11,9 @@ controllers.controller('FeedCtrl', ['$scope','FeedService', function ($scope,Fee
 controllers.controller('MapCtrl', ['$scope', function ($scope) {    
     $scope.map = { center: { latitude: 40.9945928, longitude: -77.6046984 }, zoom: 7 };
 }]);
-controllers.controller('ChartCtrl', ['$scope', '$filter', 'DataService', function ($scope, $filter, DataService) {    
-  var chart1 = c3.generate({
+controllers.controller('ChartCtrl', ['$scope', '$filter', '$timeout', 'DataService', function ($scope, $filter, $timeout, DataService) {    
+  $timeout( function () {
+    var chart1 = c3.generate({
       bindto: '#chart1',
       data: {
           x: 'x',
@@ -66,6 +67,7 @@ controllers.controller('ChartCtrl', ['$scope', '$filter', 'DataService', functio
       point: {
         r: 4
       }
+  });
   });
   $scope.$watch('selected', function () {
     chart1.load({
