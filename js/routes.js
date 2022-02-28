@@ -22,6 +22,10 @@ routes.config (['$routeProvider', function ($routeProvider) {
 	    controller: 'FeedCtrl',
   		templateUrl: 'partials/news.html'
 	  }).
+	  when('/cql', {
+	    controller: 'FeedCtrl',
+  		templateUrl: 'https://joelmontavon.github.io/flu-vax-cql/'
+	  }).
 	  otherwise ({
 		  redirectTo: '/'
 	  });
